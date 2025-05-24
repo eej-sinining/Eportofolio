@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Feedback | Your Portfolio</title>
+    <style>
+        /* GLOBAL STYLES (Match your existing CSS) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* HEADER (Consistent with your portfolio) */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2rem;
+        }
+        
+        .view-all-link {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .view-all-link:hover {
+            color: #357ab8;
+            transform: translateX(3px);
+        }
+        
+        /* FEEDBACK CARDS (Matches your .box styling) */
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .feedback-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feedback-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .client-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .client-info h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .client-company {
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        .feedback-content {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-reference {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .project-tag {
+            background: #e9ecef;
+            color: #495057;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .feedback-date {
+            color: #666;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Client Feedback</h1>
+            <a href="index.html" class="view-all-link">← Back to Portfolio</a>
+        </div>
+        
+        <div class="feedback-grid">
+            <!-- Feedback 1 -->
+            <div class="feedback-card">
+                <div class="client-header">
+                    <img src="../../assets/client_avatar.png" alt="Client" class="client-avatar">
+                    <div class="client-info">
+                        <h3>Alejandro, Francis JB</h3>
+                        <p class="client-company">University of Mindanao - Student</p>
+                    </div>
+                </div>
+                <p class="feedback-content">
+                    "The booking management system reduced no-shows by 30% and increased direct reservations by 45%. The team's attention to our specific workflow needs was exceptional."
+                </p>
+                <div class="project-reference">
+                    <span class="project-tag">ERD and DATABASE DESIGN SCHEMA</span>
+                    <span class="feedback-date">April 2025</span>
+                </div>
+            </div>
+            
+            <!-- Feedback 2 -->
+            <div class="feedback-card">
+                <div class="client-header">
+                    <img src="../../assets/client_avatar.png" alt="Client" class="client-avatar">
+                    <div class="client-info">
+                        <h3>Nen, Bryzen Adriel/h3>
+                        <p class="client-company">University of Mindanao - Student</p>
+                    </div>
+                </div>
+                <p class="feedback-content">
+                    "The booking management system reduced no-shows by 30% and increased direct reservations by 45%. The team's attention to our specific workflow needs was exceptional."
+                </p>
+                <div class="project-reference">
+                    <span class="project-tag">MINI-INVENTORY IN ASSEMBLY (MASM32)</span>
+                    <span class="feedback-date">May 2025</span>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+</html>
