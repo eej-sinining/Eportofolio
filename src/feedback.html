@@ -122,6 +122,14 @@
             font-size: 0.8rem;
         }
     </style>
+    <script>
+        // Apply dark mode immediately before page renders
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -140,9 +148,9 @@
                         <p class="client-company">University of Mindanao - Student</p>
                     </div>
                 </div>
-                <p class="feedback-content">
-                    "The booking management system reduced no-shows by 30% and increased direct reservations by 45%. The team's attention to our specific workflow needs was exceptional."
-                </p>
+                <p class="feedback-content"><i>
+                    "Absolutely stunning work! I'm beyond thrilled with the final result. You captured everything I asked for and more. The attention to detail is incredible. It’s clear you put a lot of care and effort in the project. Thank you for being so professional and communicative throughout the process. I would definitely commission you again in the future!."
+                </i></p>
                 <div class="project-reference">
                     <span class="project-tag">ERD and DATABASE DESIGN SCHEMA</span>
                     <span class="feedback-date">April 2025</span>
@@ -154,15 +162,15 @@
                 <div class="client-header">
                     <img src="../../assets/client_avatar.png" alt="Client" class="client-avatar">
                     <div class="client-info">
-                        <h3>Nen, Bryzen Adriel/h3>
+                        <h3>Nene, Bryzen Adriel</h3>
                         <p class="client-company">University of Mindanao - Student</p>
                     </div>
                 </div>
-                <p class="feedback-content">
-                    "The booking management system reduced no-shows by 30% and increased direct reservations by 45%. The team's attention to our specific workflow needs was exceptional."
-                </p>
+                <p class="feedback-content"><i>
+                    "Absolutely stunning work! I'm beyond thrilled with the final result. You captured everything I asked for and more. The attention to detail is incredible. It’s clear you put a lot of care and effort in the project. Thank you for being so professional and communicative throughout the process. I would definitely commission you again in the future!."
+                </i></p>
                 <div class="project-reference">
-                    <span class="project-tag">MINI-INVENTORY IN ASSEMBLY (MASM32)</span>
+                    <span class="project-tag">MINI-INVENTORY (ASSEMBLY X86)</span>
                     <span class="feedback-date">May 2025</span>
                 </div>
             </div>
@@ -172,6 +180,6 @@
 
         </div>
     </div>
-    <script src="../js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

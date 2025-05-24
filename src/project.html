@@ -123,6 +123,19 @@
             transform: translateX(3px);
         }
     </style>
+    <script>
+        // Apply dark mode immediately before page renders
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+            }
+        });
+        // Immediately hide body until mode is determined
+        document.body.style.opacity = '0';
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -211,6 +224,6 @@
 
         </div>
     </div>
-    <script src="../js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

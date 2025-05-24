@@ -11,6 +11,19 @@
 
     <title>EEJS | Portfolio</title>
 
+    <script>
+        // Apply dark mode immediately before page renders
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+            }
+        });
+        // Immediately hide body until mode is determined
+        document.body.style.opacity = '0';
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
 </head>
 <body>
     
@@ -20,7 +33,7 @@
                 <div>
 
                     <div class="profiles">
-                        <img src="../../assets/meoww.jpg" alt="profile" srcset="">
+                        <img src="../assets/stu_pic.JPEG" alt="profile" srcset="">
                         <div>
                             <div class="name">
                                 <h1>Ean Endrew Jade Sinining</h1>
@@ -33,7 +46,25 @@
                             </div>
                             <div class="details">
                                 <p>Davao, Philippines</p>
-                                <p>Computer Science</p>
+                                <p>Computer Science and Shopify Store Builder</p>
+                            </div>
+                            <br>
+                            <div class="social-icons">
+                                <a href="https://github.com/eej-sinining" class="social-icon github" target="_blank" title="GitHub">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://facebook.com/Ephisshy" class="social-icon facebook" target="_blank" title="Facebook">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                </a>
+                                <a href="mailto:eej.sinining@gmail.com" class="social-icon gmail" target="_blank" title="Email">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.887.732-1.636 1.636-1.636h.91L12 10.09l9.455-6.269h.909c.904 0 1.636.749 1.636 1.636z"/>
+                                    </svg>
+                                </a>
                             </div>
                             <br>
                             <div class="actions">
@@ -55,6 +86,7 @@
                         <p>
                             I’m Ean Endrew Jade Sinining, a third-year college student at the University of Mindanao with a growing passion for web development and eCommerce. I’ve gained hands-on experience in HTML, CSS, JavaScript, and Tailwind CSS, and have served as the frontend developer for a major school project, building key system features from the ground up. While design doesn’t come naturally to me, I’m consistently working to improve my skills and create user-friendly interfaces. As a Freelance Shopify Store Assistant, I help clients set up their online stores, customize themes, manage product listings, and ensure mobile responsiveness.
 
+                            <br>
                             <br>
 
                             I’m currently focused on becoming a more well-rounded developer by improving both my frontend and backend skills. I’m also exploring Vue.js and Laravel to deepen my understanding of modern web frameworks. Beyond the web, I’ve contributed to Arduino-based projects and developed a payroll system using Django as part of a team. I value continuous learning, transparency, and adaptability, and I’m driven by a strong desire to grow professionally and contribute to real-world tech solutions that make a difference.
@@ -197,7 +229,7 @@
                             </div>
                             <div class="statement-content">
                                 <p><i>
-                                    "Absolutely stunning work! I'm beyond thrilled with the final result. You captured everything I asked for and more. The attention to detail is incredible. It’s clear you put a lot of care and effort in the project. Thank you for being so professional and communicative throughout the process. I would definitely commission you again in the future!"
+                                    "Absolutely stunning work! I'm beyond thrilled with the final result. You captured everything I asked for and more. The attention to detail is incredible. It’s clear you put a lot of care and effort in the project. Thank you for being so professional and communicative throughout the process. I would definitely commission you again in the future!."
                                 </i></p>
                                 <div class="system-reference">
                                     <span class="system-pill">ERD and DATABASE DESIGN SCHEMA</span>
@@ -237,6 +269,6 @@
         <p>&copy; 2025 | Ean Endrew Jade Sinining</p>
     </footer>
 
-    <script src="../js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
