@@ -5,43 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Certifications</title>
     <style>
+        /* Color Variables */
+        :root {
+            --primary-bg: #0a0a0f;
+            --secondary-bg: #1a1a2e;
+            --accent-bg: #16213e;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-color: #00d4ff;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-color: #00ff88;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 212, 255, 0.1);
+        }
+
         /* Reuse the same global styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
         
         body {
-            background-color: #f5f5f5;
-            padding: 2rem;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            padding: 1rem;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(1deg); }
+            66% { transform: translateY(15px) rotate(-1deg); }
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
         
         .page-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
             margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            
+            justify-content: space-between;
         }
         
         h1 {
-            color: #333;
-            font-size: 2rem;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .back-link {
-            color: #4a90e2;
+            color: var(--accent-color);
             text-decoration: none;
             font-weight: 500;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-3px);
         }
         
         /* Certifications List */
@@ -52,26 +108,48 @@
         }
         
         .certification-card {
-            background: white;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
             border-radius: 10px;
-            padding: 1.5rem;
-            border: 1px solid #e0e0e0;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             display: flex;
-            gap: 1.5rem;
+            flex-direction: column;
+            gap: 1rem;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
         
         .certification-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .certification-card:hover::before {
+            transform: scaleX(1);
         }
         
         .certification-logo {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             object-fit: contain;
             border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
         
         .certification-details {
@@ -79,85 +157,182 @@
         }
         
         .certification-title {
-            color: #333;
-            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
         
         .certification-org {
-            color: #4a90e2;
+            color: var(--accent-color);
             font-weight: 500;
             margin-bottom: 0.5rem;
             display: block;
         }
         
         .certification-date {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 0.9rem;
             margin-bottom: 1rem;
         }
         
         .certification-link {
-            color: #4a90e2;
+            color: var(--accent-color);
             text-decoration: none;
             font-weight: 500;
             display: flex;
             align-items: center;
             gap: 0.3rem;
             transition: all 0.3s ease;
+            padding: 0.5rem 0;
         }
         
         .certification-link:hover {
-            color: #357ab8;
-            transform: translateX(3px);
+            color: var(--text-primary);
+            transform: translateX(5px);
+        }
+
+        /* Dark mode toggle styles */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .page-header {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .certification-card {
+                flex-direction: row;
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+            
+            .certification-logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .certification-title {
+                font-size: 1.2rem;
+            }
+            
+            .back-link, .certification-link {
+                padding: 0;
+            }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         // Apply dark mode immediately before page renders
         document.addEventListener('DOMContentLoaded', function() {
             if (localStorage.getItem('darkMode') === 'enabled') {
                 document.body.classList.add('dark-mode');
             }
+            // Immediately hide body until mode is determined
+            document.body.style.opacity = '0';
+            setTimeout(function() {
+                document.body.style.opacity = '1';
+            }, 100);
         });
-        // Immediately hide body until mode is determined
-        document.body.style.opacity = '0';
-        document.addEventListener('DOMContentLoaded', function() {
-            document.body.style.opacity = '1';
-        });
+
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
     </script>
 </head>
 <body>
+
     <div class="container">
         <div class="page-header">
             <h1>My Certifications</h1>
-            
             <a href="index.html" class="back-link">← Back to Portfolio</a>
         </div>
         
         <div class="certifications-list">
             <!-- Certification 1 -->
             <div class="certification-card">
-                
                 <div class="certification-details">
                     <h3 class="certification-title">Technology Seminar</h3>
                     <span class="certification-org">UPITDC</span>
                     <span class="certification-date">Issued: March 2025 · No Expiration</span>
-                    <a href="https://drive.google.com/file/d/1Vd66qynXIIoPBlfmyw7bOvF8jia22oaP/view?usp=sharing"  target="_blank" class="certification-link">View Credential →</a>
+                    <a href="https://drive.google.com/file/d/1Vd66qynXIIoPBlfmyw7bOvF8jia22oaP/view?usp=sharing" target="_blank" class="certification-link">View Credential →</a>
                 </div>
             </div>
             
             <!-- Certification 2 -->
             <div class="certification-card">
-                
                 <div class="certification-details">
                     <h3 class="certification-title">Preventive Measures</h3>
                     <span class="certification-org">TESDA</span>
                     <span class="certification-date">Issued: October 2021 · No Expiration</span>
-                    <a href="https://drive.google.com/file/d/1whoxGp6VCDcHbH4xZSKlLDqbu9Cd0JD1/view?usp=drive_link"  target="_blank" class="certification-link">View Credential →</a>
+                    <a href="https://drive.google.com/file/d/1whoxGp6VCDcHbH4xZSKlLDqbu9Cd0JD1/view?usp=drive_link" target="_blank" class="certification-link">View Credential →</a>
                 </div>
             </div>
-            
-            <!-- Add more certifications as needed -->
         </div>
     </div>
     <script src="./js/main.js"></script>
