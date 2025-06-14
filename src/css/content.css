@@ -240,6 +240,7 @@
 
         /* View All Link */
         .view-all-link {
+            width: fit-content;
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 500;
@@ -250,6 +251,7 @@
             gap: 0.3rem;
             white-space: nowrap;
             flex-shrink: 0;
+            
         }
 
         .view-all-link:hover {
@@ -699,7 +701,7 @@
         }
 
         /* Splash Screen */
-        .intro {
+        /* .intro {
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -739,7 +741,7 @@
             bottom: 150px;
             opacity: 0;
             transition: ease-in-out 0.5s;
-        }
+        } */
 
         /* Responsive Design */
         @media (max-width: 1200px) {
